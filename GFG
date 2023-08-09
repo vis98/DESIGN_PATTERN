@@ -1,0 +1,15 @@
+// (GFG) Java code to create singleton class by
+// Eager Initialization
+public class Eager
+{
+// public instance initialized when loading the class
+private static final Eager instance = new Eager();
+
+private Eager()
+{
+	// private constructor
+}
+public static Eager getInstance(){
+		return instance;
+	}
+}
