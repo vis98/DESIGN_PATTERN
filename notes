@@ -1,0 +1,4 @@
+SINGLETON
+
+things such as db connections ,caching initiation and logging is required once for each  service there comes singleton into picture 
+which helps to avoid multiple instance creation of the same.
