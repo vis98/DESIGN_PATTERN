@@ -1,0 +1,46 @@
+// Subject (Observable)
+class Subject {
+  constructor() {
+    this.observers = [];
+  }
+
+  // Register an observer
+  addObserver(observer) {
+    this.observers.push(observer);
+  }
+
+  // Remove an observer
+  removeObserver(observer) {
+    this.observers = this.observers.filter(obs => obs !== observer);
+  }
+
+  // Notify all observers
+  notifyObservers(message) {
+    this.observers.forEach(observer => observer.update(message));
+  }
+}
+
+// Observer
+class Observer {
+  constructor(name) {
+    this.name = name;
+  }
+ 
+  // Update method to receive notifications
+  update(message) {
+    console.log(`${this.name} received message: ${message}`);
+  }
+}
+
+// Example usage
+const subject = new Subject();
+const subject1 = new Subject();
+
+const observer1 = new Observer('Observer 1');
+const observer2 = new Observer('Observer 2');
+
+subject.addObserver(observer1);
+subject1.addObserver(observer2);
+
+subject.notifyObservers('Hello, observers!');
+subject1.notifyObservers('chall');
