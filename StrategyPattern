@@ -1,3 +1,7 @@
+//strategy pattern comes into picture when mulltiple subclass have extended parent and provide their own implementation which might be similar sometimes
+// eg class A is parent B ,C and D are child and lets say methodB overided by B,C,D to provide own implementation and somehow B and D have similar functionality in their own 
+//implementation so we can create interface and provide diff classes which can be used by subclass using has a relation.
+
 public class StrategyPattern{
     public static void main(String args[]){
         Vehicle v=new PassengerVehicle();
