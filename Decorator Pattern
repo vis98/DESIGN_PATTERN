@@ -1,0 +1,63 @@
+ interface Pizza {
+
+    String getDescription();
+    double getCost();
+}
+
+ class BasicPizza implements Pizza {
+    @Override
+    public String getDescription() {
+        return "Basic Pizza";
+    }
+
+    @Override
+    public double getCost() {
+        return 5.00; // base cost of the pizza
+    }
+}
+
+ abstract class PizzaDecorator implements Pizza {
+    protected Pizza decoratedPizza;
+
+    public PizzaDecorator(Pizza pizza) {
+        this.decoratedPizza = pizza;
+    }
+
+    @Override
+    public String getDescription() {
+        return decoratedPizza.getDescription();
+    }
+
+    @Override
+    public double getCost() {
+        return decoratedPizza.getCost();
+    }
+}
+
+class Cheese extends PizzaDecorator{
+    public Cheese(Pizza pizza) {
+        super(pizza);
+    }
+    @Override
+    public String getDescription() {
+        return "cheese decorated";
+    }
+
+    @Override
+    public double getCost() {
+        return decoratedPizza.getCost()+1.25;
+    }
+}
+
+
+
+public class PizzaShop {
+    public static void main(String[] args) {
+
+    BasicPizza basicPizza=new BasicPizza();
+
+    Cheese cheesepizza=new Cheese(basicPizza);
+    System.out.println("cheese pizza price"+ cheesepizza.getCost());
+    }
+    
+}
